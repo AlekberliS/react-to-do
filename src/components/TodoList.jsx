@@ -74,7 +74,9 @@ function TodoList() {
   };
 
   const removeTodo = (id) => {
-    setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+    localStorage.setItem('todos', JSON.stringify(updatedTodos)); // Update local storage
   };
 
   const handleFilterClick = (filter) => {
